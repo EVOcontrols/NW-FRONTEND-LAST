@@ -29,22 +29,21 @@ interface Props {
 export const SecurityAccessEditor = ({
   // values,
   setFieldValue,
-  // errors,
+  errors,
   title,
   initialAccess,
 }: Props) => {
-  const { t, onAdd, onChange, onClear, address, isDisabled } =
-    useSecurityAccessEditor({
-      setFieldValue,
-      initialAccess,
-    });
+  const { t, onAdd, onChange, onClear, address } = useSecurityAccessEditor({
+    setFieldValue,
+    initialAccess,
+  });
   return (
     <div className={styles.wrapper}>
       <Title fontWeight="semibold" className={styles.title}>
         {title}
       </Title>
       {address.map((el, index) => {
-        const isRemoveDisabled = !el?.entrance || address.length === 1;
+        const isRemoveDisabled = address.length === 1;
         return (
           <div className={styles.element} key={`AddressFilters-${el.id}`}>
             <AddressFilters
@@ -64,9 +63,10 @@ export const SecurityAccessEditor = ({
       })}
       <Button
         variant="text"
+        type="button"
         onClick={onAdd}
         className={styles.add}
-        disabled={isDisabled}
+        disabled={!!errors.entrances_ids}
       >
         <IconPlusRounded width={20} height={20} />
         <Text>{t('actions.addAddress')}</Text>

@@ -6,7 +6,7 @@ import {
   IconMail,
   IconPhone,
   IconTelegram,
-  IconViber,
+  // IconViber,
 } from '@shared/icons';
 import { Button, Divider, Text, Title } from '@shared/ui';
 import styles from './Footer.module.scss';
@@ -25,9 +25,26 @@ export const Footer = ({ className }: Props) => {
           <Title variant="h4" fontWeight="normal">
             {t('footer.northWaterfront')}
           </Title>
-          <Text variant="body14" fontWeight="regular">
-            {t('footer.address')}
-          </Text>
+          <Link
+            to={
+              'https://yandex.by/maps/157/minsk/house/Zk4YcwJmTkcHQFtpfXR4cn9qZg==/?ll=27.556720%2C53.893392&z=17'
+            }
+            target="_blank"
+          >
+            <Text variant="body14" fontWeight="regular">
+              {t('footer.actualAddress')}
+            </Text>
+          </Link>
+          <Link
+            to={
+              'https://yandex.by/maps/157/minsk/house/Zk4YcwFmTkwOQFtpfXV3c39lYg==/?ll=27.566799%2C53.962366&z=17.14'
+            }
+            target="_blank"
+          >
+            <Text variant="body14" fontWeight="regular">
+              {t('footer.legalAddress')}
+            </Text>
+          </Link>
           <Link
             to={'https://northwaterfront.by/'}
             target="_blank"
@@ -61,16 +78,16 @@ export const Footer = ({ className }: Props) => {
           </div>
         </div>
         <div className={styles.socials}>
-          <Link to={''}>
+          <Link to={'https://t.me/nw_northwaterfront'} target="_blank">
             <Button className={styles.button} variant="light">
               <IconTelegram className={styles.icon} width={24} height={24} />
             </Button>
           </Link>
-          <Link to={''}>
+          {/* <Link to={''} target="_blank">
             <Button className={styles.button} variant="light">
               <IconViber className={styles.icon} width={24} height={24} />
             </Button>
-          </Link>
+          </Link> */}
         </div>
       </div>
       <Divider className={styles.divider} />
