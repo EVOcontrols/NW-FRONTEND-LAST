@@ -12,10 +12,24 @@ import { Button } from '@shared/ui';
 import { usePage } from '../hook';
 
 export default () => {
-  const { isLoading, data, t, id } = usePage();
+  const { isLoading, data, t, id, handleShowAnswerDetails } = usePage();
   const tabs = {
-    en: <VotingContent language={LanguageEnum.EN} data={data} />,
-    ru: <VotingContent language={LanguageEnum.RU} data={data} />,
+    en: (
+      <VotingContent
+        onAnswerClick={handleShowAnswerDetails}
+        showPercent
+        language={LanguageEnum.EN}
+        data={data}
+      />
+    ),
+    ru: (
+      <VotingContent
+        onAnswerClick={handleShowAnswerDetails}
+        showPercent
+        language={LanguageEnum.RU}
+        data={data}
+      />
+    ),
   };
   return (
     <PageSkeleton>
