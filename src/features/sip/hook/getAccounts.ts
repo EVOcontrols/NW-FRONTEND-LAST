@@ -20,7 +20,7 @@ export const useGetSipAccountList = () => {
       setData(data);
       return data;
     } catch (error) {
-      toast.error(t('toast.listError'));
+      toast.error(t('errors.getError'));
       console.error(error);
     } finally {
       setIsLoading(false);
