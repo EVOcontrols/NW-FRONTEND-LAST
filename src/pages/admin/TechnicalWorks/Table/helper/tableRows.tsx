@@ -4,7 +4,7 @@ import { formatAddress } from '@features/utils';
 import { TableControls, TableText } from '@entities/components';
 import { ITechWork } from '@entities/types';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
-import { Badge } from '@shared/ui';
+import { Badge, Text } from '@shared/ui';
 
 interface Props {
   data: Array<ITechWork>;
@@ -43,8 +43,8 @@ export const useTableRows = ({ data, onDelete }: Props) => {
         ),
         period: (
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <TableText>{`${t('period.from').toLocaleLowerCase()} ${format(date_start * 1000, 'dd.MM.yyyy')}`}</TableText>
-            <TableText>{`${t('period.to').toLocaleLowerCase()} ${format(date_end * 1000, 'dd.MM.yyyy')}`}</TableText>
+            <Text variant="body14">{`${t('period.from').toLocaleLowerCase()} ${format(date_start * 1000, 'dd.MM.yyyy')}`}</Text>
+            <Text variant="body14">{`${t('period.to').toLocaleLowerCase()} ${format(date_end * 1000, 'dd.MM.yyyy')}`}</Text>
             {!date_start && !date_end && <TableText>{'-'}</TableText>}
           </div>
         ),
