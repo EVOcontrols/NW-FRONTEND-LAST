@@ -21,7 +21,8 @@
   width: 240px;
   height: 40px;
   border-radius: var(--radius-sm);
-  background-color: var(--gray-20);
+  border: 1px solid var(--dark-20);
+  background-color: var(--white-100);
   padding: 12px;
   display: flex;
   align-items: center;
@@ -33,6 +34,7 @@
   &__wrapper {
     position: relative;
     margin-bottom: 20px;
+    width: fit-content;
   }
 
   &__inner {
@@ -50,4 +52,5 @@
   top: 44px;
   left: 0;
   user-select: none;
+  border-radius: var(--radius-sm);
 }

@@ -65,7 +65,7 @@
   left: 0;
   top: calc(100% + 8px);
   display: none;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
 
 .show {

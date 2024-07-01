@@ -34,6 +34,7 @@ export const CurrentSkeleton = ({
   isLoading,
   children,
   flexDirection = 'column',
+  hideShadow = true,
   ...props
 }: Props) => {
   return (
@@ -41,6 +42,7 @@ export const CurrentSkeleton = ({
       className={classNames(styles.wrapper, className)}
       loading={isLoading}
       flexDirection={flexDirection}
+      hideShadow={hideShadow}
       {...props}
     >
       {children}

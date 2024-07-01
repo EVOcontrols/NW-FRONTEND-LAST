@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { IconClose } from '@shared/icons';
 import { Button } from '@shared/ui';
+import { Portal } from '../../Portal';
 import styles from './FullWidth.module.scss';
 import { useFullWidthSkeleton } from './hook';
 
@@ -15,11 +16,13 @@ interface Props {
 export const FullWidthSkeleton = ({ className, children }: Props) => {
   const { handleClose } = useFullWidthSkeleton();
   return (
-    <div className={classNames(styles.wrapper, className)}>
-      <Button variant="white" className={styles.close} onClick={handleClose}>
-        <IconClose width={20} height={20} />
-      </Button>
-      {children}
-    </div>
+    <Portal element={document.getElementById('app') ?? document.body}>
+      <div className={classNames(styles.wrapper, className)}>
+        <Button variant="white" className={styles.close} onClick={handleClose}>
+          <IconClose width={20} height={20} />
+        </Button>
+        {children}
+      </div>
+    </Portal>
   );
 };
